@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowe-case-service-id: true
+      routes:
+        - id: episodes-service-route
+          uri: lb://episodes-service
+          predicates:
+            - Path=/episodes/**
+        - id: series-service-route
+          uri: lb://series-service
+          predicates:
+            - Path=/series/**
+
+server:
+  port: 8080

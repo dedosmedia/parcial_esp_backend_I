@@ -1,0 +1,14 @@
+# Configuración exclusiva para el Config-Server
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        #git:                       # Para obtener las configuraciones desde un repo en git
+          #uri: https://github.com/dedosmedia/parcial_esp_backend
+        native:                     # Para desarrollo, podemos probar con configuraciones nativas. Requiere perfil native activado
+          search-locations:
+            - classpath:/config
+server:
+  port: 8888
