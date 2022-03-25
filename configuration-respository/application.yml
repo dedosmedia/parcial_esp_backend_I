@@ -1,0 +1,27 @@
+# Configuración generica para todos los MS que sean clientes de Config-Server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'       # Expone todos los endpoints. JAMAS EN PRODUCCIÓN
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    shutdown:
+      enabled: true   # Permite apagar el server en desarrollo. JAMAS EN PRODUCCIÓN
+  info:
+    env:
+      enabled: true
+
+
+# Configuración generica como clientes de Eureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
